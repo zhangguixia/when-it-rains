@@ -60,6 +60,10 @@ func _advance_weather() -> void:
 
 func _on_rain_started(rain_visit: int) -> void:
 	rain_label.text = "第 %d 场雨正在落下" % rain_visit
+	if rain_visit == 1:
+		prompt_label.text = "屋檐外很冷。它还不确定能不能进来。"
+	else:
+		prompt_label.text = "它又来了。这一次，它没有犹豫那么久。"
 
 func _on_rain_stopped(_rain_visit: int) -> void:
 	rain_label.text = "雨停了。"
