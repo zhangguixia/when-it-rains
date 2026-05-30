@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://keepsakecorner"]
+
+[ext_resource type="Script" path="res://game/keepsakes/KeepsakeCorner.gd" id="1"]
+
+[node name="KeepsakeCorner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 60.0
+offset_right = 1000.0
+offset_bottom = 110.0
+text = "把落叶放进第一个收容角落"
+
+[node name="SlotButtons" type="HBoxContainer" parent="."]
+offset_left = 260.0
+offset_top = 360.0
+offset_right = 1660.0
+offset_bottom = 560.0
+theme_override_constants/separation = 60
+
+[node name="Slot0" type="Button" parent="SlotButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 180)
+text = "窗边"
+
+[node name="Slot1" type="Button" parent="SlotButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 180)
+text = "坐垫旁"
+
+[node name="Slot2" type="Button" parent="SlotButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 180)
+text = "木箱上"
