@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AnimalProfile" load_steps=2 format=3 uid="uid://kittenprofile"]
+
+[ext_resource type="Script" path="res://game/resources/AnimalProfile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "kitten"
+display_name = "小猫"
+description = "第一次来时，它在雨里犹豫了很久。第二次来时，它认得这个屋檐。"
+keepsake_id = "leaf"
+unlocked_in_demo = true

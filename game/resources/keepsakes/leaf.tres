@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KeepsakeProfile" load_steps=2 format=3 uid="uid://leafkeepsake"]
+
+[ext_resource type="Script" path="res://game/resources/KeepsakeProfile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "leaf"
+display_name = "落叶"
+memory_text = "它留下的落叶，边缘还带着雨水。"
+unlocked_in_demo = true
