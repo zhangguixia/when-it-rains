@@ -1,1 +1,10 @@
 .superpowers/
+.godot/
+.import/
+*.translation
+export_presets.cfg
+exports/
+builds/
+*.tmp
+*.log
+user://
