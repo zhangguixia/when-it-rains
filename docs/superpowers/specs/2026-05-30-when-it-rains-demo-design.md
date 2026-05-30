@@ -1,328 +1,330 @@
-# When It Rains / 当雨落下时 - Steam Demo Design
+# When It Rains / 当雨落下时 - Steam Demo 设计规格
 
-Date: 2026-05-30
-Status: Design confirmed in conversation; awaiting final written-spec review
-Target: Steam Demo / Next Fest-style playable slice
+日期：2026-05-30
+状态：已在对话中确认设计方向，等待用户审阅本文档
+目标：Steam Demo / Next Fest 风格试玩切片
 
-## Product Positioning
+## 产品定位
 
-**English title:** When It Rains
+**英文标题：** When It Rains
 
-**Chinese title:** 当雨落下时
+**中文标题：** 当雨落下时
 
-**Steam short description:** A cozy shelter game about helping little animals through rainy days.
+**Steam 英文短描述：** A cozy shelter game about helping little animals through rainy days.
 
-The demo is a quiet, emotional 15-30 minute slice about offering a small act of care and discovering that it mattered. The core emotional arc is not "collect many things"; it is "it remembered me."
+这个 Demo 是一个 15-30 分钟的安静治愈体验，核心不是“收集很多东西”，而是让玩家感到：“我做的一点小事，它记住了。”
 
-The demo should leave players with three clear impressions:
+Demo 要让玩家留下三个清晰印象：
 
-1. A wet, hesitant kitten needed a safe place.
-2. The player's simple care changed how the kitten behaved.
-3. When the kitten returned, the player understood that their kindness had been remembered.
+1. 一只湿漉漉、犹豫的小猫需要一个安全干燥的地方。
+2. 玩家简单的照顾改变了小猫的行为。
+3. 当小猫再次回来时，玩家能明白自己的善意被记住了。
 
-## Scope Choice
+## 范围选择
 
-The chosen route is an authored kitten-first Steam Demo slice.
+本 Demo 采用“小猫情绪线优先”的 Steam 试玩路线。
 
-The demo includes:
+Demo 包含：
 
-- One complete two-visit kitten arc.
-- Low-pressure light management around dry areas, cushion placement, milk, and petting.
-- One keepsake: a leaf.
-- A fixed-slot keepsake placement moment in a small shelter corner.
-- An animal + keepsake codex.
-- A locked preview of future animals and keepsakes.
-- A small dog tease through sound, silhouette, pawprints, or another non-playable hint.
+- 一只小猫的完整两次来访流程。
+- 围绕干燥区域、坐垫、牛奶和抚摸的低压轻管理。
+- 一件纪念品：落叶。
+- 一个固定点位的纪念品摆放时刻，用来完成第一个“收容角落”。
+- 动物 + 纪念品双图鉴。
+- 未来动物和纪念品的锁定剪影预览。
+- 一个小狗预告，可以通过声音、影子、脚印或其他非完整角色形式呈现。
 
-The demo excludes:
+Demo 不包含：
 
-- Full multi-animal loops.
-- Freeform decoration.
-- Shops, upgrades, purchases, or consumable resources.
-- Failure conditions.
-- Complex daily scheduling.
-- Full Steamworks integration. Wishlist prompts are handled as in-game text in this demo scope.
+- 多动物完整循环。
+- 自由装修系统。
+- 商店、升级、购买或消耗型资源。
+- 失败条件。
+- 复杂每日排程。
+- Steamworks 完整集成。当前范围内，愿望单提示只作为游戏内文本出现。
 
-## Demo Experience
+## Demo 体验流程
 
-The demo plays across two rainy visits.
+Demo 由两场雨组成。
 
-### First Rain
+### 第一场雨
 
-The player starts under an empty eave or window-side shelter while rain falls outside. A wet kitten appears and hesitates before entering. The player learns the core interactions through discovery and gentle visual cues:
+玩家从一个空屋檐或窗边收容空间开始，外面正在下雨。湿漉漉的小猫出现，但一开始会在边缘犹豫，不会立刻完全进入。
 
-- Drag the cushion to a safer, drier area.
-- Click the milk bowl to pour milk.
-- Click the kitten to pet it.
+玩家通过轻提示和场景反馈自然学习核心交互：
 
-The kitten starts cold and uncertain. As the player cares for it, the kitten becomes calmer, moves closer, drinks milk, rests, and eventually accepts the shelter.
+- 把坐垫拖到更安全、更干燥的位置。
+- 点击牛奶碗倒牛奶。
+- 点击小猫进行抚摸。
 
-When the rain stops, the kitten leaves. This should not feel like a failure. The departure is framed as a natural goodbye: the kitten turns back once before disappearing. It leaves a leaf behind as the first keepsake.
+小猫最初寒冷、不安。随着玩家照顾它，小猫会逐渐放松，靠近坐垫，喝牛奶，休息，并慢慢接受这个屋檐。
 
-### Second Rain
+雨停时，小猫离开。这个离开不能被玩家理解为失败，而应该是一个自然的温柔告别。小猫离开前会回头看一眼，然后消失在雨后的场景里。它留下第一件纪念品：落叶。
 
-After a short transition, rain returns. The kitten comes back.
+### 第二场雨
 
-The return must read as recognition, not random respawn. The kitten should hesitate less, move toward the previous comfort area, or react to the milk bowl/cushion with familiarity.
+短暂过渡后，雨再次落下。小猫回来了。
 
-The player cares for the kitten again with the same low-pressure interactions. The second visit confirms the emotional premise: the player's small kindness mattered.
+这次回来必须让玩家读出“它认得这里”，而不是随机刷出了同一只猫。小猫可以减少犹豫时间，更快靠近上次舒适的位置，或对牛奶碗、坐垫做出更熟悉的反应。
 
-### Ending
+玩家再次用同样的低压交互照顾小猫。第二场雨的意义是确认 Demo 的情感核心：玩家的善意被记住了。
 
-At the end of the second visit, the player unlocks a small shelter corner. The player drags the leaf to one of 2-3 fixed display slots. This gives the player a brief but meaningful act of participation without creating a full decoration system.
+### 结尾
 
-The codex opens after the leaf is placed:
+第二次来访结束后，玩家解锁一个小小的收容角落。玩家可以把落叶拖到 2-3 个固定展示位置之一。这个操作要有参与感，但不扩展成完整装修系统。
 
-- The kitten entry is complete.
-- The leaf keepsake entry is complete.
-- Other animals, such as dog, bird, and hedgehog, appear as locked silhouettes.
-- Other keepsakes appear as locked silhouettes.
+落叶摆放后，图鉴打开：
 
-The demo ends with a light future-content tease. The preferred tease is non-committal and low-cost, such as a distant bark, a shadow outside the shelter, or wet pawprints near the edge of the scene.
+- 小猫条目完整解锁。
+- 落叶纪念品条目完整解锁。
+- 小狗、小鸟、刺猬等未来动物以锁定剪影出现。
+- 其他未来纪念品以锁定剪影出现。
 
-## Core Interactions
+Demo 结尾用一个轻量的未来内容预告收束。推荐形式是远处一声狗叫、门外影子、或场景边缘出现湿脚印。
 
-### Cushion Placement
+## 核心交互
 
-The player can drag the cushion between 2-3 valid areas under the eave. Areas have an internal dryness value, but the UI does not show hard numbers. Wetness changes the kitten's comfort behavior and pacing, not whether the player can win.
+### 坐垫摆放
 
-The player should understand the system through rain visuals, floor shine, drips, and the kitten's body language.
+玩家可以在屋檐下 2-3 个有效区域之间拖动坐垫。区域内部有干燥度数据，但 UI 不显示硬数值。湿度只影响小猫的舒适反应和流程节奏，不造成失败。
 
-### Milk Bowl
+玩家应该通过雨水视觉、地面反光、滴水、小猫肢体语言来理解哪里更适合放坐垫。
 
-Clicking the milk bowl pours milk and triggers a small animation or particle effect. Milk is not a purchased or limited resource in the demo.
+### 牛奶碗
 
-The kitten can approach and drink after milk is poured. Drinking should produce a small sound and a visible comfort response.
+点击牛奶碗会倒牛奶，并触发小动画或粒子反馈。Demo 中牛奶不是购买资源，也不是有限消耗资源。
 
-### Petting
+倒牛奶后，小猫可以靠近并喝奶。喝奶要有细小音效和明显的安心反馈。
 
-Clicking the kitten triggers a short petting response, such as a small animation, expression shift, or purring sound. Internally, petting increases trust, but the player never sees a numeric affection meter.
+### 抚摸
 
-Petting should be gentle and paced to avoid becoming a clicker mechanic.
+点击小猫触发短促的抚摸反应，例如轻动画、表情变化或呼噜声。内部可以增加信任值，但玩家不能看到数字化亲密度。
 
-### Keepsake Placement
+抚摸需要有节奏限制，避免变成点击器玩法。
 
-After the kitten leaves the leaf, the player can drag the leaf into one of 2-3 fixed slots in the shelter corner. The selected slot is saved.
+### 纪念品摆放
 
-This is the first hint of long-term collection and display. It is not a full garden or housing editor.
+小猫留下落叶后，玩家可以把落叶拖到收容角落的 2-3 个固定展示槽之一。选择的位置会保存。
 
-## Systems
+这是长期收集和陈列玩法的第一次暗示，不是完整花园或房屋编辑器。
 
-### Weather Flow
+## 系统设计
 
-The demo uses an authored weather sequence rather than a fully random weather simulation:
+### 天气流程
 
-1. Intro rain.
-2. First rain care sequence.
-3. Rain stop and kitten departure.
-4. Short interlude.
-5. Second rain and kitten return.
-6. Ending and codex reveal.
+Demo 使用编排好的天气流程，而不是完整随机天气模拟：
 
-Rain intensity can vary for atmosphere, but the sequence should remain predictable for demo pacing.
+1. 开场下雨。
+2. 第一场雨照顾小猫。
+3. 雨停，小猫离开。
+4. 短暂间隔。
+5. 第二场雨，小猫回来。
+6. 结尾，落叶摆放，图鉴打开。
 
-### Animal State
+雨势可以为了氛围轻微变化，但整体顺序要保持稳定，保证 Demo 节奏可控。
 
-The kitten uses a small state machine:
+### 小猫状态
 
-- `Hesitating`
-- `Approaching`
-- `Resting`
-- `Drinking`
-- `Purring`
-- `Leaving`
-- `Returning`
+小猫使用一个小型状态机：
 
-State transitions respond to cushion placement, milk availability, petting, weather stage, and authored timing.
+- `Hesitating`：犹豫
+- `Approaching`：靠近
+- `Resting`：休息
+- `Drinking`：喝奶
+- `Purring`：安心/呼噜
+- `Leaving`：离开
+- `Returning`：再次回来
 
-The full game can later add other animals using the same profile and state interfaces, but the demo only needs the kitten fully implemented.
+状态转换受坐垫位置、牛奶状态、抚摸次数、天气阶段和编排时间影响。
 
-### Care State
+正式版以后可以复用同样接口扩展其他动物，但 Demo 只完整实现小猫。
 
-Care state tracks:
+### 照顾状态
 
-- Cushion location.
-- Area dryness.
-- Milk bowl state.
-- Petting count or trust contribution.
-- Current visit number.
+照顾状态记录：
 
-These values influence animation, dialogue text, and pacing. They are not surfaced as visible stats.
+- 坐垫当前位置。
+- 区域干燥度。
+- 牛奶碗状态。
+- 抚摸次数或信任贡献。
+- 当前是第几次来访。
 
-### Codex
+这些值影响动画、文本和节奏，但不作为可见数值展示。
 
-The codex combines animal and keepsake collection.
+### 图鉴
 
-Demo-visible entries:
+图鉴采用动物 + 纪念品组合结构。
 
-- Kitten: unlocked, with two-visit completion.
-- Leaf: unlocked, with a short keepsake text.
-- Dog, bird, hedgehog: locked silhouettes.
-- Future keepsakes: locked silhouettes.
+Demo 可见条目：
 
-The codex should communicate future content without implying those animals are playable in the demo.
+- 小猫：已解锁，显示两次来访完成状态。
+- 落叶：已解锁，显示一段短纪念品文本。
+- 小狗、小鸟、刺猬：锁定剪影。
+- 未来纪念品：锁定剪影。
 
-### Saving
+图鉴要传达正式版会有更多内容，但不能让玩家误以为这些动物已经能在 Demo 中遇到。
 
-The demo saves:
+### 存档
 
-- Current demo stage.
-- Whether the kitten has visited once or twice.
-- Whether the leaf has been collected.
-- Leaf display slot.
-- Codex unlock state.
-- Basic settings.
+Demo 保存：
 
-If save data is corrupted, the game should allow a demo reset rather than crashing.
+- 当前 Demo 阶段。
+- 小猫已经来访一次还是两次。
+- 是否已获得落叶。
+- 落叶展示槽位置。
+- 图鉴解锁状态。
+- 基础设置。
 
-## Godot Architecture
+如果存档损坏，游戏应允许玩家重置 Demo 进度，而不是崩溃。
 
-Target engine: Godot 4.x, with Godot 4.6.2 as the intended project version.
+## Godot 架构
 
-Recommended scene structure:
+目标引擎：Godot 4.x，项目目标版本为 Godot 4.6.2。
 
-- `Main.tscn`: startup entry, settings/save initialization, scene loading.
-- `ShelterScene.tscn`: main playable scene with background, rain, cushion, milk bowl, kitten, interaction hotspots, and demo flow.
-- `CatActor.tscn`: kitten visuals, animations, and state machine.
-- `CodexPanel.tscn`: animal + keepsake codex UI.
-- `KeepsakeCorner.tscn`: fixed-slot leaf placement UI/scene element.
+推荐场景结构：
 
-Recommended scripts:
+- `Main.tscn`：启动入口，负责设置/存档初始化和场景加载。
+- `ShelterScene.tscn`：主要可玩场景，包含背景、雨、坐垫、牛奶碗、小猫、交互热点和 Demo 流程。
+- `CatActor.tscn`：小猫视觉、动画和状态机。
+- `CodexPanel.tscn`：动物 + 纪念品图鉴 UI。
+- `KeepsakeCorner.tscn`：固定槽位的落叶摆放场景元素。
 
-- `WeatherController.gd`: rain sequence, rain stop, visual/audio weather cues.
-- `CareController.gd`: cushion, milk, petting, and dry-area state.
-- `CatStateMachine.gd`: kitten state transitions and behavior.
-- `KeepsakeController.gd`: leaf creation and placement.
-- `CodexService.gd`: codex unlock state and entry data.
-- `SaveService.gd`: persistent demo progress and settings.
+推荐脚本：
 
-Recommended resource types:
+- `WeatherController.gd`：雨天流程、雨停、天气视觉和音频提示。
+- `CareController.gd`：坐垫、牛奶、抚摸和干燥区域状态。
+- `CatStateMachine.gd`：小猫状态转换和行为。
+- `KeepsakeController.gd`：落叶生成和摆放。
+- `CodexService.gd`：图鉴解锁状态和条目数据。
+- `SaveService.gd`：Demo 进度和设置持久化。
+
+推荐资源类型：
 
 - `AnimalProfile`
 - `KeepsakeProfile`
 - `DialogueLine`
 - `DemoStageConfig`
 
-Content should be data-driven where it helps future expansion, but the demo should not overbuild generic systems before the kitten arc works.
+内容应在有助于正式版扩展的地方数据化，但不要在小猫流程可玩之前过度建设通用系统。
 
-## Visual Direction
+## 视觉方向
 
-The visual direction is low-saturation hand-painted watercolor with warm yellow shelter light and rainy window/eave atmosphere.
+视觉方向是低饱和手绘水彩，配合暖黄色收容灯光和雨天窗边/屋檐氛围。
 
-The first screen should immediately communicate:
+第一屏必须立刻传达：
 
-- It is raining.
-- This is a safe shelter space.
-- The kitten is wet and uncertain.
-- The player can make the space more comfortable.
+- 正在下雨。
+- 这里是安全的收容空间。
+- 小猫湿冷且不安。
+- 玩家可以让这个空间更舒服。
 
-Required demo assets:
+Demo 必需资源：
 
-- One 16:9 shelter/eave/window background.
-- One kitten design with at least four readable states: wet/hesitant, resting, drinking, leaving/looking back.
-- Cushion.
-- Milk bowl.
-- Leaf keepsake.
-- Small shelter corner with 2-3 fixed display slots.
-- Codex UI with kitten, leaf, and locked silhouettes.
-- A low-cost dog tease asset or audio cue.
+- 一张 16:9 屋檐/窗边/收容空间背景。
+- 一只小猫设计，至少具备四种可读状态：湿冷犹豫、休息、喝奶、离开/回头。
+- 坐垫。
+- 牛奶碗。
+- 落叶纪念品。
+- 带 2-3 个固定展示槽的小收容角落。
+- 图鉴 UI，包含小猫、落叶和锁定剪影。
+- 一个低成本小狗预告素材或音频提示。
 
-## Audio Direction
+## 音频方向
 
-Audio should be quiet and intimate. Rain is the main bed.
+音频要安静、亲密。雨声是主要底色。
 
-Required demo audio:
+Demo 必需音频：
 
-- Looping rain ambience.
-- Rain-stop transition or lighter rain layer.
-- Occasional subtle thunder.
-- Milk pour sound.
-- Drinking sound.
-- Petting or purring sound.
-- Small movement or leaving sound.
-- Optional sparse music for the ending or codex reveal.
-- Optional distant dog bark for the final tease.
+- 循环雨声音景。
+- 雨停过渡或小雨层。
+- 偶尔出现的轻微雷声。
+- 倒牛奶音效。
+- 喝奶音效。
+- 抚摸或呼噜音效。
+- 小猫移动或离开的轻声音效。
+- 结尾或图鉴打开时的稀疏音乐。
+- 结尾小狗预告可使用远处狗叫。
 
-Music should not overpower the rain. Silence and small sounds are part of the emotional design.
+音乐不能盖过雨声。留白和细小声音本身就是情绪设计的一部分。
 
-## UI and Settings
+## UI 与设置
 
-The demo needs:
+Demo 需要：
 
-- Main menu.
-- Start or continue.
-- Settings.
-- Reset demo progress.
-- Exit game.
-- Codex panel.
-- Minimal in-game prompts or visual hints.
+- 主菜单。
+- 开始或继续。
+- 设置。
+- 重置 Demo 进度。
+- 退出游戏。
+- 图鉴面板。
+- 极少量游戏内提示或视觉引导。
 
-Settings should cover at least:
+设置至少包含：
 
-- Master volume.
-- Ambience/rain volume.
-- Music volume.
-- Window/fullscreen toggle.
+- 总音量。
+- 环境/雨声音量。
+- 音乐音量。
+- 窗口/全屏切换。
 
-UI should support 1920x1080 and scale cleanly when windowed.
+UI 要支持 1920x1080，并在窗口缩放时保持关键交互和文本可见。
 
-## Steam Demo Deliverables
+## Steam Demo 交付物
 
-Primary deliverable:
+主要交付物：
 
-- Windows playable demo build.
+- Windows 可运行 Demo 包。
 
-Deferred deliverables:
+延后交付物：
 
-- macOS build.
-- Web build for itch.io.
+- macOS 构建。
+- itch.io Web 构建。
 
-Store and marketing capture targets:
+商店与宣传截图目标：
 
-- Rainy shelter first screen.
-- Kitten drinking milk.
-- Kitten leaving as rain stops.
-- Leaf placement in the shelter corner.
-- Codex page with kitten unlocked and other animals silhouetted.
+- 雨中收容空间第一屏。
+- 小猫喝牛奶。
+- 雨停时小猫离开。
+- 落叶摆放在收容角落。
+- 图鉴页：小猫已解锁，其他动物为剪影。
 
-The demo can include an ending screen inviting players to wishlist the full game, but Steamworks integration is not required for this design phase.
+Demo 可以包含结尾愿望单提示文案，但当前设计阶段不要求 Steamworks 集成。
 
-## Testing
+## 测试标准
 
-### Emotional Tests
+### 情绪测试
 
-The demo should pass these checks:
+Demo 要通过这些检查：
 
-1. Players understand the kitten needs a dry, safe place.
-2. Players discover cushion, milk, and petting interactions within about one minute without heavy tutorial text.
-3. The first departure reads as a gentle goodbye, not failure.
-4. The second visit reads as the same kitten returning.
-5. The leaf placement and codex reveal make future collection understandable.
+1. 玩家能理解小猫需要一个干燥、安全的位置。
+2. 玩家能在约 1 分钟内发现坐垫、牛奶和抚摸交互，而不依赖大量教程文字。
+3. 第一次离开被理解为温柔告别，而不是失败。
+4. 第二次来访被理解为同一只小猫回来了。
+5. 落叶摆放和图鉴打开能让玩家理解正式版会有更多动物和纪念品。
 
-### Technical Tests
+### 技术测试
 
-The demo should pass these checks:
+Demo 要通过这些检查：
 
-1. New game to demo ending works without blockers.
-2. Exiting and reopening restores the nearest meaningful stage.
-3. Window resizing does not hide critical UI or interaction targets.
-4. Missing assets use placeholders or log errors instead of crashing.
-5. Reset progress works.
+1. 从新游戏到 Demo 结尾没有流程阻断。
+2. 退出并重新打开后，能恢复到最近的有意义阶段。
+3. 窗口缩放不会遮挡关键 UI 或交互目标。
+4. 资源缺失时使用占位或记录错误日志，而不是崩溃。
+5. 重置进度可用。
 
-### Playtest Success Criteria
+### 试玩成功标准
 
-For an initial 5-8 player test:
+首次 5-8 人试玩建议采用这些标准：
 
-- At least 70% finish the demo without explanation.
-- At least 60% mention emotional recognition, such as "it came back," "it remembered me," or "I felt a little reluctant to say goodbye."
-- Players can describe the future promise as more animals and more keepsakes.
+- 至少 70% 的玩家能在不解释的情况下完成 Demo。
+- 至少 60% 的玩家在反馈中提到“它回来了”“它记得我”“有点舍不得”等情绪关键词。
+- 玩家能描述正式版承诺：更多动物、更多纪念品。
 
-## Implementation Assumptions
+## 实施假设
 
-Implementation planning should proceed with these assumptions:
+实施计划按以下假设推进：
 
-- Godot 4.6.2 is the target version. If the local machine has a different Godot 4.x version, the first implementation step is to verify compatibility before creating project-specific assets.
-- The first playable build uses simple placeholder art where needed. AI-generated or final-styled assets are added after the core loop works.
-- Steam-specific packaging is deferred until the demo loop, saving, settings, codex, and ending are playable locally.
+- Godot 4.6.2 是目标版本。如果本机安装的是其他 Godot 4.x 版本，第一步先验证兼容性，再创建项目专属资源。
+- 第一版可玩构建优先使用简单占位美术。核心流程跑通后，再替换 AI 生成或正式风格资源。
+- Steam 特定打包延后到本地 Demo 主循环、存档、设置、图鉴和结尾都可玩之后。
 
-The recommended implementation order is playable loop first, then art/audio pass, then codex and Steam-demo polish.
+推荐实施顺序：先做可玩主循环，再做美术/音频氛围，再做图鉴和 Steam Demo 打磨。
