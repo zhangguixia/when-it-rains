@@ -10,6 +10,11 @@ config/name="When It Rains"
 run/main_scene="res://game/main/Main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[autoload]
+
+SaveService="*res://game/services/SaveService.gd"
+CodexService="*res://game/services/CodexService.gd"
+
 [display]
 
 window/size/viewport_width=1920
