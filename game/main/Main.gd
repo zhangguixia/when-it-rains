@@ -3,6 +3,8 @@ extends Control
 const MAIN_MENU_SCENE := preload("res://game/main/MainMenu.tscn")
 const SETTINGS_SCENE := preload("res://game/ui/SettingsPanel.tscn")
 const SHELTER_SCENE := "res://game/shelter/ShelterScene.tscn"
+const KEEPSAKE_SCENE := "res://game/keepsakes/KeepsakeCorner.tscn"
+const CODEX_SCENE := "res://game/ui/CodexPanel.tscn"
 
 @onready var content: Control = %Content
 
@@ -30,7 +32,7 @@ func _start_demo() -> void:
 	get_tree().change_scene_to_file(SHELTER_SCENE)
 
 func _continue_demo() -> void:
-	get_tree().change_scene_to_file(SHELTER_SCENE)
+	get_tree().change_scene_to_file(get_scene_for_stage(SaveService.get_stage()))
 
 func _reset_progress() -> void:
 	SaveService.reset_progress()
@@ -43,3 +45,12 @@ func _quit_game() -> void:
 func _clear_content() -> void:
 	for child in content.get_children():
 		child.queue_free()
+
+func get_scene_for_stage(stage: String) -> String:
+	match stage:
+		"leaf_placement":
+			return KEEPSAKE_SCENE
+		"codex_reveal", "demo_complete":
+			return CODEX_SCENE
+		_:
+			return SHELTER_SCENE

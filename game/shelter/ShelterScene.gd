@@ -20,8 +20,7 @@ func _ready() -> void:
 	care.care_changed.connect(_on_care_changed)
 	weather.rain_started.connect(_on_rain_started)
 	weather.rain_stopped.connect(_on_rain_stopped)
-	weather.start_first_rain()
-	SaveService.set_stage("first_rain")
+	_restore_from_saved_stage()
 
 func _move_cushion() -> void:
 	care.move_cushion("dry_left")
@@ -71,3 +70,35 @@ func _on_rain_stopped(_rain_visit: int) -> void:
 	SaveService.set_leaf_collected(true)
 	CodexService.unlock_animal("kitten")
 	CodexService.unlock_keepsake("leaf")
+
+func _restore_from_saved_stage() -> void:
+	var restore_state := get_restore_state_for_stage(SaveService.get_stage())
+	stage = String(restore_state["stage"])
+	visit = int(restore_state["visit"])
+	match String(restore_state["weather"]):
+		"stopped":
+			weather.visit = visit
+			weather.raining = false
+			_on_rain_stopped(visit)
+		_:
+			if visit == 2:
+				weather.start_second_rain()
+			else:
+				weather.start_first_rain()
+	match String(restore_state["cat"]):
+		"Leaving":
+			cat.start_leaving()
+		"Returning":
+			cat.start_returning()
+		_:
+			pass
+	SaveService.set_stage(stage)
+
+func get_restore_state_for_stage(saved_stage: String) -> Dictionary:
+	match saved_stage:
+		"first_goodbye":
+			return {"stage": "first_goodbye", "visit": 1, "weather": "stopped", "cat": "Leaving"}
+		"second_rain":
+			return {"stage": "second_rain", "visit": 2, "weather": "raining", "cat": "Returning"}
+		_:
+			return {"stage": "first_rain", "visit": 1, "weather": "raining", "cat": "Hesitating"}

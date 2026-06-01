@@ -17,15 +17,28 @@ const KEEPSAKE_ENTRIES := [
 	{"id": "acorn", "name": "橡果", "text": "还未获得。"}
 ]
 
+func _ready() -> void:
+	load_from_save()
+
 func reset_codex() -> void:
 	unlocked_animals.clear()
 	unlocked_keepsakes.clear()
 
 func unlock_animal(id: String) -> void:
 	unlocked_animals[id] = true
+	SaveService.unlock_codex_animal(id)
 
 func unlock_keepsake(id: String) -> void:
 	unlocked_keepsakes[id] = true
+	SaveService.unlock_codex_keepsake(id)
+
+func load_from_save() -> void:
+	unlocked_animals.clear()
+	unlocked_keepsakes.clear()
+	for id in SaveService.get_unlocked_animals():
+		unlocked_animals[String(id)] = true
+	for id in SaveService.get_unlocked_keepsakes():
+		unlocked_keepsakes[String(id)] = true
 
 func is_animal_unlocked(id: String) -> bool:
 	return unlocked_animals.get(id, false)

@@ -13,6 +13,10 @@ func _default_data() -> Dictionary:
 		"kitten_visits": 0,
 		"leaf_collected": false,
 		"leaf_slot": -1,
+		"codex": {
+			"animals": [],
+			"keepsakes": []
+		},
 		"settings": {
 			"master_volume": 1.0,
 			"ambience_volume": 1.0,
@@ -67,6 +71,22 @@ func get_settings() -> Dictionary:
 func set_setting(key: String, value) -> void:
 	data["settings"][key] = value
 	save_progress()
+
+func unlock_codex_animal(id: String) -> void:
+	if not data["codex"]["animals"].has(id):
+		data["codex"]["animals"].append(id)
+		save_progress()
+
+func unlock_codex_keepsake(id: String) -> void:
+	if not data["codex"]["keepsakes"].has(id):
+		data["codex"]["keepsakes"].append(id)
+		save_progress()
+
+func get_unlocked_animals() -> Array:
+	return data["codex"]["animals"].duplicate()
+
+func get_unlocked_keepsakes() -> Array:
+	return data["codex"]["keepsakes"].duplicate()
 
 func save_progress() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
