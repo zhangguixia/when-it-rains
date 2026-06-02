@@ -2,20 +2,19 @@ extends Control
 
 const CODEX_SCENE := preload("res://game/ui/CodexPanel.tscn")
 
-@onready var slot_0: Button = %Slot0
-@onready var slot_1: Button = %Slot1
-@onready var slot_2: Button = %Slot2
+@onready var instruction: Label = %Instruction
+@onready var leaf: ColorRect = %Leaf
 
 func _ready() -> void:
-	slot_0.pressed.connect(func() -> void: _choose_slot(0))
-	slot_1.pressed.connect(func() -> void: _choose_slot(1))
-	slot_2.pressed.connect(func() -> void: _choose_slot(2))
+	leaf.leaf_placed.connect(_choose_slot)
 
 func _choose_slot(index: int) -> void:
 	SaveService.set_leaf_slot(index)
 	SaveService.set_stage("codex_reveal")
 	CodexService.unlock_animal("kitten")
 	CodexService.unlock_keepsake("leaf")
+	instruction.text = "落叶放好了。这个角落开始有了回忆。"
+	await get_tree().create_timer(0.8).timeout
 	_show_codex()
 
 func _show_codex() -> void:
