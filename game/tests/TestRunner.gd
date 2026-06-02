@@ -10,6 +10,8 @@ func _ready() -> void:
 	_run_script("res://game/tests/test_main_routing.gd")
 	_run_script("res://game/tests/test_shelter_restore.gd")
 	_run_script("res://game/tests/test_cushion_dragger.gd")
+	_run_script("res://game/tests/test_milk_bowl.gd")
+	_run_script("res://game/tests/test_demo_progression.gd")
 	if failures.is_empty():
 		print("TESTS PASSED")
 		get_tree().quit(0)

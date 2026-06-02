@@ -3,19 +3,23 @@ extends Control
 @onready var rain_label: Label = %RainLabel
 @onready var prompt_label: Label = %PromptLabel
 @onready var cushion: ColorRect = %Cushion
-@onready var milk_button: Button = %MilkButton
+@onready var milk_bowl: ColorRect = %MilkBowl
 @onready var advance_button: Button = %AdvanceButton
+@onready var transition_timer: Timer = %TransitionTimer
 @onready var weather: Node = %WeatherController
 @onready var care: Node = %CareController
 @onready var cat: Area2D = %CatActor
 
 var visit := 1
 var stage := "first_rain"
+var transition_pending := false
+var progression := preload("res://game/shelter/DemoProgression.gd").new()
 
 func _ready() -> void:
 	cushion.cushion_dropped.connect(_move_cushion)
-	milk_button.pressed.connect(_pour_milk)
+	milk_bowl.milk_poured.connect(_pour_milk)
 	advance_button.pressed.connect(_advance_weather)
+	transition_timer.timeout.connect(_advance_weather)
 	cat.petted.connect(_pet_cat)
 	care.care_changed.connect(_on_care_changed)
 	weather.rain_started.connect(_on_rain_started)
@@ -34,7 +38,7 @@ func _move_cushion(area_id: String) -> void:
 
 func _pour_milk() -> void:
 	care.pour_milk()
-	prompt_label.text = "牛奶倒好了，小猫闻到了。"
+	prompt_label.text = milk_bowl.get_prompt_text()
 
 func _pet_cat() -> void:
 	care.pet_cat()
@@ -43,16 +47,20 @@ func _pet_cat() -> void:
 func _on_care_changed(snapshot: Dictionary) -> void:
 	snapshot["visit"] = visit
 	cat.apply_care(snapshot)
+	_maybe_advance_after_care(snapshot)
 
 func _advance_weather() -> void:
 	match stage:
 		"first_rain":
 			stage = "first_goodbye"
+			transition_pending = false
 			weather.stop_rain()
 			cat.start_leaving()
 			SaveService.set_stage("first_goodbye")
+			_queue_advance_after_delay(2.0)
 		"first_goodbye":
 			stage = "second_rain"
+			transition_pending = false
 			visit = 2
 			care.reset_for_next_visit()
 			weather.start_second_rain()
@@ -60,6 +68,7 @@ func _advance_weather() -> void:
 			SaveService.set_stage("second_rain")
 		"second_rain":
 			stage = "leaf_placement"
+			transition_pending = false
 			SaveService.set_stage("leaf_placement")
 			get_tree().change_scene_to_file("res://game/keepsakes/KeepsakeCorner.tscn")
 
@@ -99,6 +108,25 @@ func _restore_from_saved_stage() -> void:
 		_:
 			pass
 	SaveService.set_stage(stage)
+
+func _maybe_advance_after_care(snapshot: Dictionary) -> void:
+	if transition_pending:
+		return
+	if not progression.is_care_complete(snapshot):
+		return
+	if progression.get_next_stage_after_care(stage) == "":
+		return
+	match stage:
+		"first_rain":
+			prompt_label.text = "它终于安心坐下了。雨声慢慢变小。"
+			_queue_advance_after_delay(1.2)
+		"second_rain":
+			prompt_label.text = "它记得这里。落叶还在等你收好。"
+			_queue_advance_after_delay(1.2)
+
+func _queue_advance_after_delay(seconds: float) -> void:
+	transition_pending = true
+	transition_timer.start(seconds)
 
 func get_restore_state_for_stage(saved_stage: String) -> Dictionary:
 	match saved_stage:

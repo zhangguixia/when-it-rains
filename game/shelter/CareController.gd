@@ -9,6 +9,7 @@ const AREA_DRYNESS := {
 }
 
 var cushion_area := "center"
+var cushion_moved := false
 var milk_ready := false
 var pet_count := 0
 
@@ -17,6 +18,7 @@ func move_cushion(area_id: String) -> void:
 		push_warning("Unknown cushion area: %s" % area_id)
 		return
 	cushion_area = area_id
+	cushion_moved = true
 	care_changed.emit(get_care_snapshot(1))
 
 func pour_milk() -> void:
@@ -33,6 +35,7 @@ func get_cushion_comfort() -> float:
 func get_care_snapshot(visit: int) -> Dictionary:
 	return {
 		"cushion_area": cushion_area,
+		"cushion_moved": cushion_moved,
 		"cushion_comfort": get_cushion_comfort(),
 		"milk_ready": milk_ready,
 		"pet_count": pet_count,
@@ -40,5 +43,6 @@ func get_care_snapshot(visit: int) -> Dictionary:
 	}
 
 func reset_for_next_visit() -> void:
+	cushion_moved = false
 	milk_ready = false
 	pet_count = 0
