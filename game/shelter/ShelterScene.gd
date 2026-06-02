@@ -63,6 +63,7 @@ func _advance_weather() -> void:
 			transition_pending = false
 			visit = 2
 			care.reset_for_next_visit()
+			milk_bowl.reset_bowl()
 			weather.start_second_rain()
 			cat.start_returning()
 			SaveService.set_stage("second_rain")
