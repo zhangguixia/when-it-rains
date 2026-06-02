@@ -2,7 +2,7 @@ extends Control
 
 @onready var rain_label: Label = %RainLabel
 @onready var prompt_label: Label = %PromptLabel
-@onready var cushion_button: Button = %CushionButton
+@onready var cushion: ColorRect = %Cushion
 @onready var milk_button: Button = %MilkButton
 @onready var advance_button: Button = %AdvanceButton
 @onready var weather: Node = %WeatherController
@@ -13,7 +13,7 @@ var visit := 1
 var stage := "first_rain"
 
 func _ready() -> void:
-	cushion_button.pressed.connect(_move_cushion)
+	cushion.cushion_dropped.connect(_move_cushion)
 	milk_button.pressed.connect(_pour_milk)
 	advance_button.pressed.connect(_advance_weather)
 	cat.petted.connect(_pet_cat)
@@ -22,9 +22,15 @@ func _ready() -> void:
 	weather.rain_stopped.connect(_on_rain_stopped)
 	_restore_from_saved_stage()
 
-func _move_cushion() -> void:
-	care.move_cushion("dry_left")
-	prompt_label.text = "坐垫挪到了更干燥的地方。"
+func _move_cushion(area_id: String) -> void:
+	care.move_cushion(area_id)
+	match area_id:
+		"dry_left":
+			prompt_label.text = "坐垫挪到了更干燥的地方。"
+		"wet_right":
+			prompt_label.text = "这里有一点飘雨，小猫缩了缩。"
+		_:
+			prompt_label.text = "坐垫放在屋檐中间。"
 
 func _pour_milk() -> void:
 	care.pour_milk()

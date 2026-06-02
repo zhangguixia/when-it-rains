@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://game/shelter/WeatherController.gd" id="2"]
 [ext_resource type="Script" path="res://game/shelter/CareController.gd" id="3"]
 [ext_resource type="PackedScene" path="res://game/cat/CatActor.tscn" id="4"]
+[ext_resource type="Script" path="res://game/shelter/CushionDragger.gd" id="5"]
 
 [node name="ShelterScene" type="Control"]
 layout_mode = 3
@@ -58,14 +59,42 @@ offset_right = 1000.0
 offset_bottom = 140.0
 text = "拖动坐垫、点击牛奶碗、轻轻摸摸小猫。"
 
-[node name="CushionButton" type="Button" parent="."]
+[node name="DryAreaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 700.0
+offset_right = 500.0
+offset_bottom = 730.0
+text = "干燥处"
+horizontal_alignment = 1
+
+[node name="CenterAreaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 700.0
+offset_right = 780.0
+offset_bottom = 730.0
+text = "屋檐中间"
+horizontal_alignment = 1
+
+[node name="WetAreaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 700.0
+offset_right = 1120.0
+offset_bottom = 730.0
+text = "雨会飘到"
+horizontal_alignment = 1
+
+[node name="Cushion" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 330.0
-offset_top = 760.0
-offset_right = 530.0
-offset_bottom = 840.0
-text = "坐垫：移动到干燥处"
+offset_left = 700.0
+offset_top = 800.0
+offset_right = 900.0
+offset_bottom = 880.0
+color = Color(0.72, 0.18, 0.22, 1)
+script = ExtResource("5")
 
 [node name="MilkButton" type="Button" parent="."]
 unique_name_in_owner = true
@@ -74,7 +103,7 @@ offset_left = 600.0
 offset_top = 760.0
 offset_right = 800.0
 offset_bottom = 840.0
-text = "倒牛奶"
+text = "牛奶碗"
 
 [node name="AdvanceButton" type="Button" parent="."]
 unique_name_in_owner = true
