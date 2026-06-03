@@ -6,6 +6,7 @@ func _ready() -> void:
 	_run_script("res://game/tests/test_save_service.gd")
 	_run_script("res://game/tests/test_codex_service.gd")
 	_run_script("res://game/tests/test_cat_state_machine.gd")
+	_run_script("res://game/tests/test_cat_actor_feedback.gd")
 	_run_script("res://game/tests/test_care_controller.gd")
 	_run_script("res://game/tests/test_main_routing.gd")
 	_run_script("res://game/tests/test_shelter_restore.gd")
