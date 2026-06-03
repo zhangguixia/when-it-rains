@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://endingscreen"]
+[gd_scene load_steps=4 format=3 uid="uid://endingscreen"]
 
 [ext_resource type="Script" path="res://game/ui/EndingScreen.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.24, 0.19, 0.15, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.88, 0.67, 0.38, 0.45)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0.36, 0.27, 0.19, 0.98)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.78, 0.46, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 12.0
 
 [node name="EndingScreen" type="Control"]
 layout_mode = 3
@@ -14,52 +46,85 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.08, 0.09, 0.11, 1)
+color = Color(0.055, 0.07, 0.085, 1)
+
+[node name="WarmWindow" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 0.72, 0.38, 0.11)
+
+[node name="RainLines" type="Label" parent="."]
+offset_left = 1040.0
+offset_top = 70.0
+offset_right = 1700.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(0.62, 0.73, 0.88, 0.34)
+theme_override_font_sizes/font_size = 34
+text = "／／／／／／／
+／／／／／／／
+／／／／／／／
+／／／／／／／"
 
 [node name="Line1" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 360.0
-offset_top = 320.0
+offset_top = 300.0
 offset_right = 1560.0
-offset_bottom = 380.0
+offset_bottom = 370.0
+theme_override_colors/font_color = Color(1, 0.83, 0.56, 1)
+theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 
 [node name="Line2" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 360.0
-offset_top = 410.0
+offset_top = 405.0
 offset_right = 1560.0
-offset_bottom = 470.0
+offset_bottom = 465.0
+theme_override_colors/font_color = Color(0.88, 0.78, 0.64, 1)
+theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="Line3" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 360.0
-offset_top = 520.0
+offset_top = 490.0
 offset_right = 1560.0
-offset_bottom = 580.0
+offset_bottom = 550.0
+theme_override_colors/font_color = Color(0.74, 0.82, 0.88, 1)
+theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
 [node name="WishlistHint" type="Label" parent="."]
 offset_left = 420.0
-offset_top = 700.0
+offset_top = 675.0
 offset_right = 1500.0
-offset_bottom = 760.0
+offset_bottom = 735.0
+theme_override_colors/font_color = Color(0.86, 0.65, 0.36, 1)
+theme_override_font_sizes/font_size = 26
 text = "When It Rains / 当雨落下时"
 horizontal_alignment = 1
 
 [node name="MainMenuButton" type="Button" parent="."]
 unique_name_in_owner = true
 offset_left = 620.0
-offset_top = 840.0
+offset_top = 830.0
 offset_right = 900.0
-offset_bottom = 900.0
+offset_bottom = 890.0
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "回到主菜单"
 
 [node name="RestartButton" type="Button" parent="."]
 unique_name_in_owner = true
 offset_left = 1020.0
-offset_top = 840.0
+offset_top = 830.0
 offset_right = 1300.0
-offset_bottom = 900.0
+offset_bottom = 890.0
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
 text = "重新开始 Demo"

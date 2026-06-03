@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 signal start_requested
 signal continue_requested
