@@ -17,4 +17,6 @@ func run(assert_true: Callable, assert_equal: Callable) -> void:
 	assert_equal.call(lines[0], "雨还会再来的。", "first ending line")
 	assert_equal.call(lines[1], "有些小小的善意，会被记住很久。", "second ending line")
 	assert_equal.call(lines[2], "正式版会有更多来访的小动物和纪念品。", "third ending line")
+	assert_true.call(ending.has_signal("main_menu_requested"), "ending emits main menu signal")
+	assert_true.call(ending.has_signal("restart_requested"), "ending emits restart signal")
 	ending.free()

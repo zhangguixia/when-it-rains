@@ -47,3 +47,19 @@ offset_right = 1500.0
 offset_bottom = 760.0
 text = "When It Rains / 当雨落下时"
 horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 620.0
+offset_top = 840.0
+offset_right = 900.0
+offset_bottom = 900.0
+text = "回到主菜单"
+
+[node name="RestartButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 1020.0
+offset_top = 840.0
+offset_right = 1300.0
+offset_bottom = 900.0
+text = "重新开始 Demo"
