@@ -37,3 +37,11 @@ offset_right = 1720.0
 offset_bottom = 920.0
 text = "远处传来一声轻轻的狗叫。雨还会再来的。"
 horizontal_alignment = 1
+
+[node name="FinishButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 760.0
+offset_top = 940.0
+offset_right = 1160.0
+offset_bottom = 1000.0
+text = "结束 Demo"

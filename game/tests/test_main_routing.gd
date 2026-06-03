@@ -17,5 +17,5 @@ func run(assert_true: Callable, assert_equal: Callable) -> void:
 	assert_equal.call(main.get_scene_for_stage("second_rain"), "res://game/shelter/ShelterScene.tscn", "second rain routes to shelter")
 	assert_equal.call(main.get_scene_for_stage("leaf_placement"), "res://game/keepsakes/KeepsakeCorner.tscn", "leaf placement resumes at keepsake corner")
 	assert_equal.call(main.get_scene_for_stage("codex_reveal"), "res://game/ui/CodexPanel.tscn", "codex reveal resumes at codex")
-	assert_equal.call(main.get_scene_for_stage("demo_complete"), "res://game/ui/CodexPanel.tscn", "complete demo resumes at codex")
+	assert_equal.call(main.get_scene_for_stage("demo_complete"), "res://game/ui/EndingScreen.tscn", "complete demo resumes at ending screen")
 	main.free()

@@ -2,11 +2,13 @@ extends Control
 
 @onready var animal_list: VBoxContainer = %AnimalList
 @onready var keepsake_list: VBoxContainer = %KeepsakeList
+@onready var finish_button: Button = %FinishButton
 
 func _ready() -> void:
 	_render_animals()
 	_render_keepsakes()
-	SaveService.set_stage("demo_complete")
+	SaveService.set_stage("codex_reveal")
+	finish_button.pressed.connect(_finish_demo)
 
 func _render_animals() -> void:
 	animal_list.add_child(_make_header("动物"))
@@ -35,3 +37,7 @@ func _make_entry(title: String, body: String, locked: bool) -> PanelContainer:
 	box.add_child(body_label)
 	panel.add_child(box)
 	return panel
+
+func _finish_demo() -> void:
+	SaveService.set_stage("demo_complete")
+	get_tree().change_scene_to_file("res://game/ui/EndingScreen.tscn")

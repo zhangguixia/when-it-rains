@@ -5,6 +5,7 @@ const SETTINGS_SCENE := preload("res://game/ui/SettingsPanel.tscn")
 const SHELTER_SCENE := "res://game/shelter/ShelterScene.tscn"
 const KEEPSAKE_SCENE := "res://game/keepsakes/KeepsakeCorner.tscn"
 const CODEX_SCENE := "res://game/ui/CodexPanel.tscn"
+const ENDING_SCENE := "res://game/ui/EndingScreen.tscn"
 
 @onready var content: Control = %Content
 
@@ -50,7 +51,9 @@ func get_scene_for_stage(stage: String) -> String:
 	match stage:
 		"leaf_placement":
 			return KEEPSAKE_SCENE
-		"codex_reveal", "demo_complete":
+		"codex_reveal":
 			return CODEX_SCENE
+		"demo_complete":
+			return ENDING_SCENE
 		_:
 			return SHELTER_SCENE
