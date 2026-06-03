@@ -2,6 +2,7 @@ extends Control
 
 @onready var rain_label: Label = %RainLabel
 @onready var prompt_label: Label = %PromptLabel
+@onready var objective_label: Label = %ObjectiveLabel
 @onready var cushion: ColorRect = %Cushion
 @onready var milk_bowl: ColorRect = %MilkBowl
 @onready var advance_button: Button = %AdvanceButton
@@ -14,6 +15,7 @@ var visit := 1
 var stage := "first_rain"
 var transition_pending := false
 var progression := preload("res://game/shelter/DemoProgression.gd").new()
+var objective_hint := preload("res://game/shelter/ObjectiveHint.gd").new()
 
 func _ready() -> void:
 	cushion.cushion_dropped.connect(_move_cushion)
@@ -46,6 +48,7 @@ func _pet_cat() -> void:
 
 func _on_care_changed(snapshot: Dictionary) -> void:
 	snapshot["visit"] = visit
+	objective_label.text = objective_hint.get_hint(snapshot)
 	cat.apply_care(snapshot)
 	_maybe_advance_after_care(snapshot)
 
@@ -75,6 +78,7 @@ func _advance_weather() -> void:
 
 func _on_rain_started(rain_visit: int) -> void:
 	rain_label.text = "第 %d 场雨正在落下" % rain_visit
+	objective_label.text = objective_hint.get_hint(care.get_care_snapshot(rain_visit))
 	if rain_visit == 1:
 		prompt_label.text = "屋檐外很冷。它还不确定能不能进来。"
 	else:
@@ -83,6 +87,7 @@ func _on_rain_started(rain_visit: int) -> void:
 func _on_rain_stopped(_rain_visit: int) -> void:
 	rain_label.text = "雨停了。"
 	prompt_label.text = "它离开前回头看了一眼，留下了一片落叶。"
+	objective_label.text = "等下一场雨。"
 	SaveService.set_leaf_collected(true)
 	CodexService.unlock_animal("kitten")
 	CodexService.unlock_keepsake("leaf")
