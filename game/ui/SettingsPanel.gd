@@ -1,6 +1,8 @@
-extends CenterContainer
+extends Control
 
 signal back_requested
+
+const PAGE_TITLE := "设置"
 
 @onready var master_slider: HSlider = %MasterSlider
 @onready var rain_slider: HSlider = %RainSlider
@@ -20,6 +22,9 @@ func _ready() -> void:
 	music_slider.value_changed.connect(func(value: float) -> void: SaveService.set_setting("music_volume", value))
 	fullscreen_check.toggled.connect(_set_fullscreen)
 	back_button.pressed.connect(func() -> void: back_requested.emit())
+
+func get_page_title() -> String:
+	return PAGE_TITLE
 
 func _set_fullscreen(enabled: bool) -> void:
 	SaveService.set_setting("fullscreen", enabled)
