@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://shelterscene"]
+[gd_scene load_steps=9 format=3 uid="uid://shelterscene"]
 
 [ext_resource type="Script" path="res://game/shelter/ShelterScene.gd" id="1"]
 [ext_resource type="Script" path="res://game/shelter/WeatherController.gd" id="2"]
@@ -6,6 +6,33 @@
 [ext_resource type="PackedScene" path="res://game/cat/CatActor.tscn" id="4"]
 [ext_resource type="Script" path="res://game/shelter/CushionDragger.gd" id="5"]
 [ext_resource type="Script" path="res://game/shelter/MilkBowl.gd" id="6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hint_panel"]
+bg_color = Color(0.0784314, 0.0705882, 0.0627451, 0.84)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.658824, 0.509804, 0.32549, 0.58)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 26.0
+content_margin_top = 22.0
+content_margin_right = 26.0
+content_margin_bottom = 22.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_floor_label"]
+bg_color = Color(0.0627451, 0.0588235, 0.0509804, 0.52)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 12.0
+content_margin_top = 7.0
+content_margin_right = 12.0
+content_margin_bottom = 7.0
 
 [node name="ShelterScene" type="Control"]
 layout_mode = 3
@@ -21,80 +48,170 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.12, 0.14, 0.18, 1)
+color = Color(0.0352941, 0.0431373, 0.0470588, 1)
+
+[node name="RainSky" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 720.0
+grow_horizontal = 2
+color = Color(0.0470588, 0.0627451, 0.0705882, 1)
 
 [node name="WarmLight" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -620.0
+offset_top = -720.0
+offset_right = 620.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.388235, 0.227451, 0.113725, 0.22)
+
+[node name="ShelterRoof" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 628.0
+offset_bottom = 710.0
+grow_horizontal = 2
+color = Color(0.113725, 0.0901961, 0.0705882, 1)
+
+[node name="ShelterFloor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(1, 0.75, 0.35, 0.12)
+offset_top = -350.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.12549, 0.0980392, 0.0745098, 1)
+
+[node name="FloorGlow" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -342.0
+offset_right = 520.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.721569, 0.431373, 0.192157, 0.18)
 
 [node name="RainLines" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1320.0
-offset_top = 80.0
-offset_right = 1820.0
-offset_bottom = 760.0
-text = "／／／／／／／／／／
-／／／／／／／／／／
-／／／／／／／／／／
-／／／／／／／／／／"
-modulate = Color(0.6, 0.7, 0.9, 0.6)
+layout_mode = 1
+anchors_preset = 9
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -660.0
+offset_top = 58.0
+offset_right = -80.0
+offset_bottom = 624.0
+grow_horizontal = 0
+text = "╲    ╲     ╲      ╲     ╲
+  ╲     ╲      ╲     ╲
+╲      ╲    ╲      ╲
+   ╲      ╲     ╲      ╲
+╲    ╲      ╲     ╲"
+theme_override_colors/font_color = Color(0.647059, 0.72549, 0.741176, 0.28)
+theme_override_font_sizes/font_size = 38
 
-[node name="RainLabel" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
+[node name="HintPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 0
 offset_left = 48.0
-offset_top = 36.0
-offset_right = 620.0
-offset_bottom = 80.0
+offset_top = 42.0
+offset_right = 742.0
+offset_bottom = 220.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hint_panel")
+
+[node name="HintBox" type="VBoxContainer" parent="HintPanel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SceneTitle" type="Label" parent="HintPanel/HintBox"]
+layout_mode = 2
+text = "雨天收容所"
+theme_override_colors/font_color = Color(1, 0.858824, 0.603922, 1)
+theme_override_font_sizes/font_size = 32
+
+[node name="RainLabel" type="Label" parent="HintPanel/HintBox"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "雨正在落下"
+theme_override_colors/font_color = Color(0.764706, 0.74902, 0.67451, 1)
+theme_override_font_sizes/font_size = 20
 
-[node name="PromptLabel" type="Label" parent="."]
+[node name="PromptLabel" type="Label" parent="HintPanel/HintBox"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 48.0
-offset_top = 92.0
-offset_right = 1000.0
-offset_bottom = 140.0
+layout_mode = 2
 text = "拖动坐垫、点击牛奶碗、轻轻摸摸小猫。"
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.92549, 0.858824, 0.729412, 1)
+theme_override_font_sizes/font_size = 22
 
-[node name="ObjectiveLabel" type="Label" parent="."]
+[node name="ObjectiveLabel" type="Label" parent="HintPanel/HintBox"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 48.0
-offset_top = 150.0
-offset_right = 1000.0
-offset_bottom = 196.0
+layout_mode = 2
 text = "先把坐垫拖到干燥一点的地方。"
+autowrap_mode = 3
+theme_override_colors/font_color = Color(1, 0.792157, 0.470588, 1)
+theme_override_font_sizes/font_size = 20
 
-[node name="DryAreaLabel" type="Label" parent="."]
+[node name="DryAreaLabel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 700.0
-offset_right = 500.0
-offset_bottom = 730.0
+offset_left = 318.0
+offset_top = 712.0
+offset_right = 542.0
+offset_bottom = 760.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_floor_label")
+
+[node name="Text" type="Label" parent="DryAreaLabel"]
+layout_mode = 2
 text = "干燥处"
 horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.8, 0.784314, 0.690196, 0.86)
+theme_override_font_sizes/font_size = 18
 
-[node name="CenterAreaLabel" type="Label" parent="."]
+[node name="CenterAreaLabel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 640.0
-offset_top = 700.0
-offset_right = 780.0
-offset_bottom = 730.0
+offset_left = 628.0
+offset_top = 712.0
+offset_right = 852.0
+offset_bottom = 760.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_floor_label")
+
+[node name="Text" type="Label" parent="CenterAreaLabel"]
+layout_mode = 2
 text = "屋檐中间"
 horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.8, 0.784314, 0.690196, 0.86)
+theme_override_font_sizes/font_size = 18
 
-[node name="WetAreaLabel" type="Label" parent="."]
+[node name="WetAreaLabel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 980.0
-offset_top = 700.0
-offset_right = 1120.0
-offset_bottom = 730.0
+offset_left = 972.0
+offset_top = 712.0
+offset_right = 1196.0
+offset_bottom = 760.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_floor_label")
+
+[node name="Text" type="Label" parent="WetAreaLabel"]
+layout_mode = 2
 text = "雨会飘到"
 horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.8, 0.784314, 0.690196, 0.86)
+theme_override_font_sizes/font_size = 18
 
 [node name="Cushion" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -102,28 +219,43 @@ layout_mode = 0
 offset_left = 700.0
 offset_top = 800.0
 offset_right = 900.0
-offset_bottom = 880.0
-color = Color(0.72, 0.18, 0.22, 1)
+offset_bottom = 884.0
+color = Color(0.631373, 0.145098, 0.164706, 1)
 script = ExtResource("5")
+
+[node name="CushionLabel" type="Label" parent="Cushion"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 180.0
+offset_bottom = 60.0
+text = "坐垫"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(1, 0.847059, 0.717647, 1)
+theme_override_font_sizes/font_size = 24
 
 [node name="MilkBowl" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 600.0
-offset_top = 760.0
+offset_top = 772.0
 offset_right = 800.0
-offset_bottom = 840.0
-color = Color(0.35, 0.42, 0.48, 1)
+offset_bottom = 852.0
+color = Color(0.258824, 0.333333, 0.376471, 1)
 script = ExtResource("6")
 
 [node name="MilkBowlLabel" type="Label" parent="MilkBowl"]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 24.0
+offset_top = 22.0
 offset_right = 180.0
-offset_bottom = 54.0
+offset_bottom = 58.0
 text = "牛奶碗"
 horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.929412, 0.956863, 0.929412, 1)
+theme_override_font_sizes/font_size = 22
 
 [node name="AdvanceButton" type="Button" parent="."]
 unique_name_in_owner = true

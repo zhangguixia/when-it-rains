@@ -1,5 +1,7 @@
 extends Control
 
+const SCENE_TITLE := "雨天收容所"
+
 @onready var rain_label: Label = %RainLabel
 @onready var prompt_label: Label = %PromptLabel
 @onready var objective_label: Label = %ObjectiveLabel
@@ -27,6 +29,9 @@ func _ready() -> void:
 	weather.rain_started.connect(_on_rain_started)
 	weather.rain_stopped.connect(_on_rain_stopped)
 	_restore_from_saved_stage()
+
+func get_scene_title() -> String:
+	return SCENE_TITLE
 
 func _move_cushion(area_id: String) -> void:
 	care.move_cushion(area_id)
