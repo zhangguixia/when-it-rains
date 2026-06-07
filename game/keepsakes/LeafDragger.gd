@@ -14,6 +14,9 @@ var drag_offset := Vector2.ZERO
 func _ready() -> void:
 	position = Vector2(620, 650)
 
+func get_art_node_name() -> String:
+	return "LeafArt"
+
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		dragging = event.pressed

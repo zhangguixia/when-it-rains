@@ -9,6 +9,9 @@ func run(assert_true: Callable, assert_equal: Callable) -> void:
 	var bowl: ColorRect = bowl_script.new()
 	assert_true.call(not bowl.filled, "milk bowl starts empty")
 	assert_equal.call(bowl.get_prompt_text(), "点击牛奶碗，倒一点温牛奶。", "empty bowl prompt")
+	assert_true.call(bowl.has_method("get_art_node_name"), "milk bowl exposes art node name")
+	if bowl.has_method("get_art_node_name"):
+		assert_equal.call(bowl.get_art_node_name(), "MilkBowlArt", "milk bowl art node name")
 
 	bowl.pour_milk()
 	assert_true.call(bowl.filled, "milk bowl becomes filled")

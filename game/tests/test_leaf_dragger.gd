@@ -14,4 +14,7 @@ func run(assert_true: Callable, assert_equal: Callable) -> void:
 	assert_equal.call(dragger.get_snap_position_for_slot(1), Vector2(620, 420), "cushion snap")
 	assert_equal.call(dragger.get_snap_position_for_slot(2), Vector2(980, 420), "box snap")
 	assert_equal.call(dragger.get_snap_position_for_slot(99), Vector2(620, 420), "unknown slot snaps to center")
+	assert_true.call(dragger.has_method("get_art_node_name"), "leaf exposes art node name")
+	if dragger.has_method("get_art_node_name"):
+		assert_equal.call(dragger.get_art_node_name(), "LeafArt", "leaf art node name")
 	dragger.free()

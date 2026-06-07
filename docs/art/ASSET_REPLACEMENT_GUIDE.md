@@ -56,6 +56,14 @@ Cushion                # 继续负责拖拽
 
 这样即使以后换图片，拖拽逻辑也不会受影响。
 
+当前约定的视觉子节点：
+
+- `Cushion/CushionArt`
+- `MilkBowl/MilkBowlArt`
+- `Leaf/LeafArt`
+
+这些视觉子节点必须忽略鼠标输入，避免抢走父节点的拖拽或点击事件。
+
 ## 不要轻易改的节点名
 
 这些节点已经被脚本通过 `%NodeName` 或信号引用：

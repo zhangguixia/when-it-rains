@@ -220,10 +220,20 @@ offset_left = 700.0
 offset_top = 800.0
 offset_right = 900.0
 offset_bottom = 884.0
-color = Color(0.631373, 0.145098, 0.164706, 1)
+color = Color(0.631373, 0.145098, 0.164706, 0.22)
 script = ExtResource("5")
 
+[node name="CushionArt" type="ColorRect" parent="Cushion"]
+mouse_filter = 2
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 190.0
+offset_bottom = 76.0
+color = Color(0.631373, 0.145098, 0.164706, 1)
+
 [node name="CushionLabel" type="Label" parent="Cushion"]
+mouse_filter = 2
 layout_mode = 0
 offset_left = 20.0
 offset_top = 24.0
@@ -242,10 +252,20 @@ offset_left = 600.0
 offset_top = 772.0
 offset_right = 800.0
 offset_bottom = 852.0
-color = Color(0.258824, 0.333333, 0.376471, 1)
+color = Color(0.258824, 0.333333, 0.376471, 0.22)
 script = ExtResource("6")
 
+[node name="MilkBowlArt" type="ColorRect" parent="MilkBowl"]
+mouse_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 186.0
+offset_bottom = 70.0
+color = Color(0.258824, 0.333333, 0.376471, 1)
+
 [node name="MilkBowlLabel" type="Label" parent="MilkBowl"]
+mouse_filter = 2
 layout_mode = 0
 offset_left = 20.0
 offset_top = 22.0
